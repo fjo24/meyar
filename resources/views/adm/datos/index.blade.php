@@ -37,31 +37,32 @@
                 </td>
             </thead>
             <tbody>
-                <tr v-for="dato in Datos">
-                    <td>
-                        @{{ dato.email }}
-                    </td>
-                    <td>
-                        @{{ dato.direccion }}
-                    </td>
-                    <td>
-                        @{{ dato.telefono }}
-                    </td>
-                    <td width="10px">
-                        <a href="#" id="modalTrigger" v-on:click.prevent="editDato(dato)" class="btn boton">Editar</a>
-                    </td>
-                </tr>
+                @foreach ($datos as $dato)    
+                    <tr>
+                        <td>
+                            {{ $dato->email }}
+                        </td>
+                        <td>
+                            {{ $dato->direccion }}
+                        </td>
+                        <td>
+                            {{ $dato->telefono }}
+                        </td>
+                        <td width="10px">
+                        <a href="{{ route('datos.edit',$dato->id)}}">
+                                <i class="material-icons">
+                                    create
+                                </i>
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
-    @include('adm.datos.edit')
-    {{-- <div class="col s5">
-        <pre>@{{ $data }}</pre>
-    </div> --}}
 </div>
 
 @endsection
 
 @section('js')
-<script src="{{ asset('js/adm/datos.js')}}"></script>
 @endsection

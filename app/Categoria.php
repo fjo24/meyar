@@ -16,7 +16,7 @@ class Categoria extends Model
         return $this->hasMany('App\Producto');
     }
 
-    public function categorias()
+    public function categoria()
     {
         return $this->belongsTo('App\Categoria');
     }

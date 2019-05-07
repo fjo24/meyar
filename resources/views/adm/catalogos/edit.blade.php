@@ -1,6 +1,6 @@
 @extends('adm.layouts.frame')
 
-@section('titulo', 'Datos de la empresa')
+@section('titulo', 'Catalogo de productos')
 
 @section('contenido')
 		@if(count($errors) > 0)
@@ -21,26 +21,30 @@
 @endif
 <div class="row">
     <div class="col s12">
-        {!!Form::model($dato, ['route'=>['datos.update',$dato->id], 'method'=>'PUT'])!!}
+        {!!Form::model($catalogo, ['route'=>['catalogos.update',$catalogo->id], 'method'=>'PUT', 'files' => true])!!}
         <div class="row">
-            <div class="col s12">
-                <div class="col s6">
-                    <label for="dato">Email</label>
-                     {!!Form::text('email', null , ['class'=>''])!!}
-                </div>
-                <div class="col s6">
-                    <label for="dato">Telefono</label>
-                     {!!Form::text('telefono', null , ['class'=>''])!!}
-                </div>
-                <div class="col s12">
-                    <label for="dato">Dirección</label>
-                     {!!Form::text('direccion', null , ['class'=>''])!!}
-                </div>
+            <div class="input-field col l6 s12">
+                {!!Form::label('Nombre:')!!}
+						{!!Form::text('nombre', null , ['class'=>'', 'required'])!!}
             </div>
+            <div class="file-field input-field col l6 s12">
+            <div class="boton btn">
+                <span>
+                    Catalogo
+                </span>
+                {!! Form::file('pdf') !!}
+            </div>
+            <div class="file-path-wrapper">
+                {!! Form::text('pdf',null, ['class'=>'file-path']) !!}
+            </div>
+        </div>
         </div>
         <div class="col l12 s12 no-padding">
             <button class="boton btn-large right" name="action" type="submit">
                 Editar
+                <i class="material-icons right">
+                    send
+                </i>
             </button>
         </div>
         {!!Form::close()!!}

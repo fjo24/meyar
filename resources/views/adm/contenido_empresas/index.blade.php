@@ -1,6 +1,6 @@
 @extends('adm.layouts.frame')
 
-@section('titulo', 'Sliders')
+@section('titulo', 'Descuentos')
 
 @section('contenido')
 	    @if(count($errors) > 0)
@@ -24,50 +24,45 @@
         <table class="highlight bordered">
             <thead>
                 <td>
-                    Imagen
+                    Titulo
                 </td>
                 <td>
-                    Seccion
+                    Descripcion
                 </td>
                 <td class="text-right">
                     Acciones
                 </td>
             </thead>
             <tbody>
-                @foreach($sliders as $slider)
+                @foreach($homes as $home)
                 <tr>
                     <td>
-                        <img alt="seccion" height="150" src="{{ asset($slider->imagen) }}" width="400"/>
+                        {!!$home->nombre!!}
                     </td>
                     <td>
-                        {{ $slider->seccion }}
+                        {!!$home->descripcion!!}
                     </td>
                     <td class="text-right">
-                        <a href="{{ route('sliders.edit', $slider->id) }}">
+                        <a href="{{ route('homes.edit',$home->id)}}">
                             <i class="material-icons">
                                 create
                             </i>
                         </a>
-                        {!!Form::open(['class'=>'en-linea', 'route'=>['sliders.destroy', $slider->id], 'method' => 'DELETE'])!!}
-                        <button class="submit-button" onclick="return confirm('¿Realmente deseas borrar el slider?')" type="submit">
-                            <i class="material-icons red-text">
-                                cancel
-                            </i>
-                        </button>
-                        {!!Form::close()!!}
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
         <br>
-        <div class="col l12 s12 no-padding" href="">
-                <a href="{{ route('sliders.create') }}">
+        <a href="{{ route('descuentos.create') }}">
+            <div class="col l12 s12 no-padding" href="">
                 <button class="boton btn-large right" name="action" type="submit">
                     Nuevo
                 </button>
-            </a>
             </div>
+        </a>
     </div>
 </div>
+<script src="{{ asset('js/eliminar.js') }}" type="text/javascript">
+</script>
 @endsection

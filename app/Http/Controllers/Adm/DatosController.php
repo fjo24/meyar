@@ -13,49 +13,25 @@ class DatosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function page()
+    public function index()
     {
-        return view('adm.datos.index');
+        $datos = Dato::orderBy('telefono', 'ASC')->get();
+        return view('adm.datos.index', compact('datos'));
     }
 
-    public function index(Request $request)
+    public function edit($id)
     {
-        $datos = Dato::orderBy('id', 'DESC')->get();
-
-        return [
-            'datos' => $datos 
-        ];
-    }
-
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-            'keep' => 'required'
-        ]);
-
-        Dato::create($request->all());
-
-        return;
-    }
-
-    public function edit(Dato $Dato)
-    {
-        return $Dato;
+        $dato = Dato::find($id);
+        return view('adm.datos.edit', compact('dato'));
     }
 
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'email' => 'required|email',
-            'direccion' => 'required',
-            'telefono' => 'required'
-        ]);
-        $Dato = Dato::find($id)->update($request->all());
-        return;
-    }
-
-    public function destroy(Dato $Dato)
-    {
-        $Dato->delete();
+        $dato = Dato::find($id);
+        $dato->direccion = $request->direccion;
+        $dato->email  = $request->email;
+        $dato->telefono  = $request->telefono;
+        $dato->save();
+        return redirect()->route('datos.index');
     }
 }

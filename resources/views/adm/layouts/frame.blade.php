@@ -95,21 +95,21 @@
                 </div>
                 <ul class="collapsible collapsible-accordion">
                     <li class="bold">
-                        <a href="{{route('datos.page')}}" class="collapsible-header waves-effect waves-admin">
+                        <a class="collapsible-header waves-effect waves-admin">
                             <i class="material-icons">
                                 home
                             </i>
                             Datos
                         </a>
-                        {{-- <div class="collapsible-body">
+                        <div class="collapsible-body">
                             <ul>
                                 <li>
-                                    <a href="{{route('homes.index')}}">
-                                        
+                                    <a href="{{route('datos.edit', 1)}}">
+                                        Editar
                                     </a>
                                 </li>
                             </ul>
-                        </div> --}}
+                        </div>
                     </li>
                     <li class="bold">
                         <a href="{{route('usuarios.page')}}" class="collapsible-header waves-effect waves-admin">
@@ -129,12 +129,109 @@
                         </div> --}}
                     </li>
                     <li class="bold">
-                        <a href="{{route('sliders.page')}}" class="collapsible-header waves-effect waves-admin">
+                        <a class="collapsible-header waves-effect waves-admin">
+                            <i class="material-icons">
+                                home
+                            </i>
+                            Contenido de empresas
+                        </a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="{{route('contenido_empresas.edit', 1)}}">
+                                        Editar
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold">
+                        <a class="collapsible-header waves-effect waves-admin">
                             <i class="material-icons">
                                 home
                             </i>
                             Sliders
                         </a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="{{route('sliders.index')}}">
+                                        Listado
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{route('sliders.create')}}">
+                                        Nuevo
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold">
+                        <a class="collapsible-header waves-effect waves-admin">
+                            <i class="material-icons">
+                                home
+                            </i>
+                            Categorias
+                        </a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="{{route('categorias.index')}}">
+                                        Listado
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{route('categorias.create')}}">
+                                        Nuevo
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold">
+                        <a class="collapsible-header waves-effect waves-admin">
+                            <i class="material-icons">
+                                home
+                            </i>
+                            Productos
+                        </a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="{{route('productos.index')}}">
+                                        Listado
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{route('productos.create')}}">
+                                        Nuevo
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold">
+                        <a class="collapsible-header waves-effect waves-admin">
+                            <i class="material-icons">
+                                home
+                            </i>
+                            Redes
+                        </a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="{{route('redes.index')}}">
+                                        Listado
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{route('redes.create')}}">
+                                        Nuevo
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                 </ul>
             </ul>

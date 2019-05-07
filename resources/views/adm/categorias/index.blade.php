@@ -1,6 +1,6 @@
 @extends('adm.layouts.frame')
 
-@section('titulo', 'Sliders')
+@section('titulo', 'Sistemas de productos')
 
 @section('contenido')
 	    @if(count($errors) > 0)
@@ -24,32 +24,44 @@
         <table class="highlight bordered">
             <thead>
                 <td>
-                    Imagen
+                    Nombre
                 </td>
                 <td>
-                    Seccion
+                    Categoria superior
+                </td>
+                <td>
+                    Orden
                 </td>
                 <td class="text-right">
                     Acciones
                 </td>
             </thead>
             <tbody>
-                @foreach($sliders as $slider)
+                @foreach($categorias as $categoria)
                 <tr>
                     <td>
-                        <img alt="seccion" height="150" src="{{ asset($slider->imagen) }}" width="400"/>
+                        {!!$categoria->nombre!!}
                     </td>
+                    @if (isset($categoria->categoria))
+                        <td>
+                            {!!$categoria->categoria->nombre!!}
+                        </td>
+                    @else
+                        <td>
+                            N/A
+                        </td>
+                    @endif
                     <td>
-                        {{ $slider->seccion }}
+                        {!!$categoria->orden!!}
                     </td>
                     <td class="text-right">
-                        <a href="{{ route('sliders.edit', $slider->id) }}">
+                        <a href="{{ route('categorias.edit',$categoria->id)}}">
                             <i class="material-icons">
                                 create
                             </i>
                         </a>
-                        {!!Form::open(['class'=>'en-linea', 'route'=>['sliders.destroy', $slider->id], 'method' => 'DELETE'])!!}
-                        <button class="submit-button" onclick="return confirm('¿Realmente deseas borrar el slider?')" type="submit">
+                        {!!Form::open(['class'=>'en-linea', 'route'=>['categorias.destroy', $categoria->id], 'method' => 'DELETE'])!!}
+                        <button class="submit-button" onclick="return confirm('¿Realmente deseas borrar la categoria?')" type="submit">
                             <i class="material-icons red-text">
                                 cancel
                             </i>
@@ -61,13 +73,15 @@
             </tbody>
         </table>
         <br>
-        <div class="col l12 s12 no-padding" href="">
-                <a href="{{ route('sliders.create') }}">
+        <a href="{{ route('categorias.create') }}">
+            <div class="col l12 s12 no-padding" href="">
                 <button class="boton btn-large right" name="action" type="submit">
                     Nuevo
                 </button>
-            </a>
             </div>
+        </a>
     </div>
 </div>
+<script src="{{ asset('js/eliminar.js') }}" type="text/javascript">
+</script>
 @endsection
