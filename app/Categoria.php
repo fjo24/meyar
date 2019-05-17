@@ -20,4 +20,8 @@ class Categoria extends Model
     {
         return $this->belongsTo('App\Categoria');
     }
+    public function categorias()
+    {
+        return $this->hasMany('App\Categoria');
+    }
 }

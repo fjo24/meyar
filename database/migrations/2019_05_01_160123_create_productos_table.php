@@ -16,13 +16,13 @@ class CreateProductosTable extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('codigo');
-            $table->text('descripcion');
+            $table->text('descripcion')->nullable();
             $table->string('imagen')->nullable();
             $table->string('ancho_total')->nullable();
             $table->string('largo_total')->nullable();
             $table->string('alto')->nullable();
             $table->string('peso')->nullable();
-            $table->text('contenido');
+            $table->text('contenido')->nullable();
             $table->string('orden')->nullable();
             $table->enum('promocion', ['oferta', 'oportunidad', 'ninguna'])->default('ninguna');
             $table->unsignedBigInteger('categoria_id')->nullable();

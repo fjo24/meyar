@@ -1,0 +1,114 @@
+.slider .indicators .indicator-item.active{
+	background-color: rgba(201, 202, 201, 0.8)!important;
+}
+
+.slider .indicators .indicator-item {
+    bottom: 60px;
+    z-index: 7;
+}
+
+.slider .slides li img {
+    width: 100%!important;
+    background-size: cover;
+    background-position: center;
+}
+
+.box-cap {
+	position: absolute!important;
+    top: 37%!important;
+    left: 7.3%!important;
+    background-color: transparent;
+    width: 450px!important;
+    height: 231px;
+    line-height: 250%; 
+    color: #FFFFFF!important;
+    text-align: left;
+    font-family:  'Montserrat', sans-serif;
+    font-weight: 500;
+
+}
+
+.slidertext1{
+    position: relative;
+    top: 24px;
+    left: -1%;
+    line-height: 45px;
+    font-family:  'Montserrat', sans-serif;
+    font-size: 49px;
+}
+.slidertext2 {
+    position: relative;
+    top: 22px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 38px;
+    color: #595959;
+}
+
+@media only screen and (max-width: 993px){
+
+
+.slidertext1 {
+    position: relative;
+    top: 30px;
+    left: -1%;
+    line-height: 29px;
+    font-family:  'Montserrat', sans-serif;
+    font-size: 58px;
+    font-weight: bold;
+    padding: 1%;
+}
+
+.slidertext2 {
+    position: relative;
+    top: 30px;
+    padding: 10px!important;
+    font-family:  'Montserrat', sans-serif;
+    font-size: 43px;
+    font-weight: 400;
+    padding: 3%;
+    color: #909090;
+}
+}
+
+@media only screen and (max-width: 753px){
+.slidertext2 {
+    position: relative;
+    top: 30px;
+    padding: 10px!important;
+    font-family:  'Montserrat', sans-serif;
+     font-size: 15px;
+
+    font-weight: 600;
+    padding: 3%;
+    color: white;
+}
+.slidertext1 {
+    position: relative;
+    top: 37px;
+    left: -1%;
+    line-height: 29px;
+    font-family:  'Montserrat', sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    padding: 1%;
+}
+
+.destacado-home2 {
+    background-color: #FAFAFA;
+    height: 619px;
+}
+
+}
+
+@media only screen and (max-width: 503px){
+    .slidertext1 {
+        position: relative;
+        top: 46px;
+        left: -1%;
+        line-height: 29px;
+        font-family:  'Montserrat', sans-serif;
+        font-weight: 500;
+        font-size: 28px;
+        padding: 1%;
+    }
+}

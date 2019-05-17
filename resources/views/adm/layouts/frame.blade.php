@@ -150,6 +150,40 @@
                             <i class="material-icons">
                                 home
                             </i>
+                            Valor agregado
+                        </a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="{{route('valor_agregados.index')}}">
+                                        Listado
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold">
+                        <a class="collapsible-header waves-effect waves-admin">
+                            <i class="material-icons">
+                                home
+                            </i>
+                            Servicios
+                        </a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="{{route('servicios.index')}}">
+                                        Listado
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold">
+                        <a class="collapsible-header waves-effect waves-admin">
+                            <i class="material-icons">
+                                home
+                            </i>
                             Sliders
                         </a>
                         <div class="collapsible-body">
@@ -162,6 +196,23 @@
                                 <li>
                                     <a href="{{route('sliders.create')}}">
                                         Nuevo
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold">
+                        <a class="collapsible-header waves-effect waves-admin">
+                            <i class="material-icons">
+                                home
+                            </i>
+                            Banner
+                        </a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="{{route('banner.index')}}">
+                                        Editar banner
                                     </a>
                                 </li>
                             </ul>
