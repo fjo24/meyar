@@ -1,9 +1,9 @@
 @extends('adm.layouts.frame')
 
-@section('titulo', 'Listado de productos')
+@section('titulo', 'Descuentos')
 
 @section('contenido')
-        @if(count($errors) > 0)
+	    @if(count($errors) > 0)
 <div class="col s12 card-panel red lighten-4 red-text text-darken-4">
     <ul>
         @foreach($errors->all() as $error)
@@ -23,33 +23,39 @@
     <div class="col s12">
         <table class="highlight bordered">
             <thead>
-                <th>
-                    Descripcion
-                </th>
-                <th>
-                    Imagen
-                </th>
-                <th class="text-right">
+                <td>
+                    Minimo
+                </td>
+                <td>
+                    Maximo
+                </td>
+                <td>
+                    Porcentaje
+                </td>
+                <td class="text-right">
                     Acciones
-                </th>
+                </td>
             </thead>
             <tbody>
-                @foreach($agregados as $agregado)
+                @foreach($descuentos as $descuento)
                 <tr>
                     <td>
-                        {!!$agregado->descripcion!!}
+                        {!!$descuento->minimo!!}
                     </td>
                     <td>
-                        <img alt="seccion" height="40" width="40" src="{{ asset($agregado->imagen) }}"/>
+                        {!!$descuento->maximo!!}
+                    </td>
+                    <td>
+                        {!!$descuento->porcentaje!!}
                     </td>
                     <td class="text-right">
-                        <a href="{{ route('valor_agregados.edit',$agregado->id)}}">
+                        <a href="{{ route('descuentos.edit',$descuento->id)}}">
                             <i class="material-icons">
                                 create
                             </i>
                         </a>
-                        {!!Form::open(['class'=>'en-linea', 'route'=>['valor_agregados.destroy', $agregado->id], 'method' => 'DELETE'])!!}
-                        <button class="submit-button" onclick="return confirm_delete(this);" type="submit">
+                        {!!Form::open(['class'=>'en-linea', 'route'=>['descuentos.destroy', $descuento->id], 'method' => 'DELETE'])!!}
+                        <button class="submit-button" onclick="return confirm('¿Realmente deseas borrar el descuento?')" type="submit">
                             <i class="material-icons red-text">
                                 cancel
                             </i>
@@ -61,7 +67,7 @@
             </tbody>
         </table>
         <br>
-        <a href="{{ route('valor_agregados.create') }}">
+        <a href="{{ route('descuentos.create') }}">
             <div class="col l12 s12 no-padding" href="">
                 <button class="boton btn-large right" name="action" type="submit">
                     Nuevo

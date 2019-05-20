@@ -177,6 +177,7 @@ return [
 
         //my providers
         Collective\Html\HtmlServiceProvider::class,
+        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
 
     ],
 
@@ -232,7 +233,8 @@ return [
         //my aliases
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-
+        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
+        
     ],
 
 ];

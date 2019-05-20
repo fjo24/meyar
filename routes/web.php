@@ -11,10 +11,10 @@
 |
 */
 
-/* Route::get('/', function () {
+Route::get('/', function () {
     return view('welcome');
 });
- */
+
 //HOME
 Route::get('/', 'PaginasController@home')->name('inicio');
 
@@ -33,6 +33,54 @@ Route::get('/productoinfo/{id}',  'PaginasController@productoinfo')->name('produ
 //OFERTAS
 Route::get('/ofertas',  'PaginasController@ofertas')->name('ofertas');
 
+//EMPRESA
+Route::get('/empresa',  'PaginasController@empresa')->name('empresa');
+
+//SOLICITAR PRESUPUESTO
+Route::get('/presupuesto',  'PaginasController@presupuesto')->name('presupuesto');
+Route::post('enviar-presupuesto', [
+    'uses' => 'PaginasController@enviarpresupuesto',
+    'as'   => 'enviarpresupuesto',
+]);
+
+// ********************************************************** ZONA PRIVADA
+Route::post('logindistribuidor', 'Auth\LoginDistribuidorController@login')->name('logindistribuidor');
+//REGISTRO DE DISTRIBUIDORES
+Route::get('registro', ['uses' => 'DistribuidorController@index', 'as' => 'registro']);
+Route::post('/registro', ['uses' => 'DistribuidorController@store', 'as' => 'cliente.store']);
+Route::post('/nuevousuario', ['uses' => 'DistribuidorController@registroStore', 'as' => 'registro.store']);
+
+//TESTTS
+Route::post('/store', 'ZprivadaController@store')->name('store');
+
+//****************************************ZONA PRIVADA**************************************************************************************************************************************************
+Route::get('/zonaprivada/productos', 'ZprivadaController@productos')->name('zproductos')->middleware('auth');
+//BUSCADOR
+Route::post('/buscador', ['uses' => 'BuscadorController@getProducts', 'as' => 'buscador']);
+
+//novedades y ofertas
+Route::get('/zonaprivada/ofertasynovedades', 'ZprivadaController@ofertasynovedades')->name('ofertasynovedades')->middleware('auth');
+
+//HISTORICO
+Route::get('/zonaprivada/historico', 'ZprivadaController@historico')->name('historico')->middleware('auth');
+
+//VER DETALLE
+Route::get('/zonaprivada/detalle/{id}', 'ZprivadaController@detalle')->name('detalle')->middleware('auth');
+
+//LISTADO DE PRECIOS
+Route::get('/zonaprivada/listadeprecios', 'ZprivadaController@listadeprecios')->name('listadeprecios')->middleware('auth');
+// Rutas de reportes pdf desde la web
+    Route::get('pdf2/{id}', ['uses' => 'ZprivadaController@downloadPdf2', 'as' => 'file-pdf2']);
+
+//CARRITO
+Route::group(['prefix' => 'carrito'], function () {
+ //   Route::post('add', ['uses' => 'ZprivadaController@add', 'as' => 'carrito.add'])->middleware('auth');
+    Route::get('add/{cantidad}/{producto}', 'ZprivadaController@add')->middleware('auth');
+    Route::get('carrito', ['uses' => 'ZprivadaController@carrito', 'as' => 'carrito'])->middleware('auth');
+    Route::get('delete/{id}', ['uses' => 'ZprivadaController@delete', 'as' => 'carrito.delete'])->middleware('auth');
+    Route::post('enviar', ['uses' => 'ZprivadaController@send', 'as' => 'carrito.enviar'])->middleware('auth');
+});
+
 // DESCARGA DE FICHA
 Route::get('fichaproducto/{id}', ['uses' => 'PaginasController@downloadficha', 'as' => 'ficha']);
 
@@ -45,9 +93,14 @@ Route::post('enviar-mailcontacto', [
 
 /*******************ADMIN************************/
 Route::prefix('adm')->group(function () {
-
+    
+    /*------------DESCUENTOS----------------*/
+    Route::resource('descuentos', 'Adm\DescuentosController')/* ->middleware('admin') */;
 
     Route::get('/', 'Adm\AdminController@dashboard')->name('dashboard');
+
+    /*------------USERS----------------*/
+    Route::resource('users', 'Adm\UsersController')/* ->middleware('admin') */;
 
     /*------------DATOS----------------*/
     Route::get('/datos-page', 'Adm\DatosController@page')->name('datos.page');

@@ -3,12 +3,12 @@
     <nav class="principal">
         <div class="container" style="width: 80%">
             <a href="#" data-target="slide-out" class="sidenav-trigger" style=" "><i class="material-icons" style="color: white;">menu</i></a>
-            <div class="row" style="margin-bottom: 1%;">
+            <div class="row" style="margin-bottom: 0%;">
                 <div class="col l12 m12 s12">
                     <div class="redeshead col l4 m4 s4 center">
                         <ul class="center" style="margin-left: 38%;margin-top: 7%;">
                             <div class="col l3 m3 s3">
-                                <li class="redes_head" style="margin-top: 72%;">
+                                <li class="redes_head" style="margin-top: 20%;">
                                     <a class="" href="">
                                         <img alt="" src="{{asset('img/lupa.png')}}">
                                         </img>
@@ -37,60 +37,18 @@
                                     </a>
                                 </li>
                                 <li class="privado_head">
-                               {{--  @if(Auth::user())
-                                    <div class="dropdown-trigger hide-on-med-and-down">
-                                        <a href="{{ route('zproductos')}}" style="color: #595959; margin: 3% 0%;">
-                                            Zona privada
+                                    <div class="dropdown-trigger" data-target="dropdown1">
+                                        <a class="right" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" style="text-transform: capitalize;line-height: 125%;margin-top: 14%;color: #8D302F">
+                            Bienvenido, {{ Auth::User()->name }}<br>
+                            (Cerrar Sesión)
+                     
                                         </a>
+                                        <form action="{{ route('logout') }}" id="logout-form" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+
                                     </div>
-                                    @else --}}
-                                    <div class="dropdown-trigger hide-on-med-and-down" data-target="dropdown1">
-                                        <span href="zonaprivada/productos" style="color: #595959; margin: 3% 0%;">
-                                            Zona privada
-                                        </span>
-                                    </div>
-                                                                                                            <!-- Dropdown LOGIN -->
-                <div class="areaprivada">
-                        <ul class="dropdown-content" id="dropdown1" style="background: none, width:400px!important; height: 282px!important;">
-                            <div class="container" style="background: #FAFAFA; margin-top: 19px !important; outline: none; width: 282px;height: 62px;">
-                                {!!Form::open(['route'=>'logindistribuidor', 'method'=>'POST', 'class' => 'col s12'])!!}
-                                <div class="row">
-                            <div class="input-field col s12">
-                                <label for="Usuario" style="height: 65%;">Usuario</label>
-                                <input class="" name="username" type="text" style="border-bottom: 1px solid black;margin-top: 15%;">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <label for="password" style="height: 65%;">Contraseña</label>
-                                <input class="" name="password" type="password" style="border-bottom: 1px solid black;margin-top: 15%;">
-                            </div>
-                        </div>
-                                <style type="text/css">
-                                    .color-del-boton{
-                     background-color: #01A0E2;
-                }
-                .color-del-boton:hover{
-                     background-color: #01A0E2;
-                }
-                                </style>
-                                <div class="col s12" style="position: relative;right: 24%;margin-top: 9%;
-        margin-bottom: 2%;">
-                                    <input class="waves-effect waves-light btn right colorboton" style="color: white;font-family: 'Lato';font-weight: bold;padding-top: 4%;" type="submit" value="INGRESAR">
-                                    </input>
-                                </div>
-                                <li class="center" style="font-size: 12px;color: pink; text-decoration: none;">
-                                    <a href="{{route('registro')}}" style="color: #F07D00!important; text-align: center;">
-                                        CREAR UNA CUENTA NUEVA
-                                    </a>
-                                </li>
-                                {!!Form::close()!!}
-                            </div>
-                        </ul>
-                    </div>
-                    <!-- Dropdown LOGIN FIN -->
-                           {{--      @endif --}}
-                <!-- Dropdown LOGIN FIN -->
                                 </li>
                             </ul>
                     </div>
@@ -100,41 +58,28 @@
                 
         {{-- BARRA SUPERIOR --}}
     <div class="top hide-on-med-and-down">
-        <div class="container hide-on-med-and-down" style="width: 100%;">
+        <div class="container hide-on-med-and-down" style="width: 80%;">
             <div class="row">
                 <div class="col l12 m12 s12">
                     <div class="col l6 m6 s6 center">
                         <ul class="item-left center hide-on-med-and-down">
-                            @if($activo=='home')
+                            @if($activo=='pedidos')
                             <li class="activo item-m">
-                                <a href="{{ url('/') }}">
-                                    INICIO
+                                <a href="{{ route('zproductos') }}">
+                                    PEDIDOS
                                 </a>
                             </li>
                             @else
                             <li class="item-m">
-                                <a href="{{ url('/') }}">
-                                    INICIO
-                                </a>
-                            </li>
-                            @endif
-                            @if($activo=='empresa')
-                            <li class="activo item-m">
-                                <a href="{{ url('/empresa') }}">
-                                    EMPRESA
-                                </a>
-                            </li>
-                            @else
-                            <li class="item-m">
-                                <a href="{{ url('/empresa') }}">
-                                    EMPRESA
+                                <a href="{{ route('zproductos') }}">
+                                    PEDIDOS
                                 </a>
                             </li>
                             @endif
                             @if($activo=='productos')
                             <li class="activo item-m" {{-- id="menu_productos" --}}>
                             <a class="{{-- prod_menu --}}" href="{{route('page.categorias')}}">
-                                    PRODUCTOS
+                                    CARRITO
                                 </a>
                                 <!-- 
                                 <ul style="margin-top: -2%!important;">
@@ -153,7 +98,7 @@
                             @else
                             <li class="item-m" {{-- id="menu_productos" --}}>
                                 <a class="{{-- prod_menu --}}item-m" href="{{route('page.categorias')}}">
-                                    PRODUCTOS
+                                    CARRITO
                                 </a>
                             <!--   <ul style="margin-top: -2%!important;">
                                     <li class="menu_cate">
@@ -174,41 +119,15 @@
                     <div class="col l6 m6 s6 center">
                         <ul class="item-left center hide-on-med-and-down">
                             @if($activo=='ofertas')
-                            <li class="activo item-m" style="margin: 0px -9px;">
+                            <li class="activo item-m" style="margin: 0px 94px;">
                             <a href="{{route('ofertas')}}">
                                     OFERTAS
                                 </a>
                             </li>
                             @else
-                            <li class="item-m" style="margin: 0px -9px;">
+                            <li class="item-m" style="margin: 0px 85px;">
                                 <a href="{{route('ofertas')}}">
                                     OFERTAS
-                                </a>
-                            </li>
-                            @endif
-                            @if($activo=='presupuesto')
-                            <li class="activo item-m" style="margin: 0px -9px;">
-                                <a href="{{route('presupuesto')}}">
-                                    SOLICITAR PRESUPUESTO
-                                </a>
-                            </li>
-                            @else
-                            <li class="item-m" style="margin: 0px -9px;">
-                                <a href="{{route('presupuesto')}}">
-                                    SOLICITAR PRESUPUESTO
-                                </a>
-                            </li>
-                            @endif
-                            @if($activo=='contacto')
-                            <li class="activo item-m" style="margin: 0px -9px;">
-                                <a href="{{route('contacto')}}">
-                                    CONTACTO
-                                </a>
-                            </li>
-                            @else
-                            <li class="item-m" style="margin: 0px -9px;">
-                                <a href="{{route('contacto')}}">
-                                    CONTACTO
                                 </a>
                             </li>
                             @endif

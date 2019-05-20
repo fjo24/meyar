@@ -12,7 +12,7 @@ use App\Banner;
 use App\Calidad;
 use App\Destacado_home;
 use App\Destacado_mantenimiento;
-use App\Empresa;
+use App\Contenido_empresa;
 use App\Rubro;
 use App\Tiempo;
 use App\Novedad;
@@ -24,6 +24,7 @@ use App\Servicio;
 use App\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Valor_agregado;
 
 class PaginasController extends Controller
 {
@@ -125,7 +126,7 @@ class PaginasController extends Controller
        //     dd($producto);
         Mail::send('pages.emails.contactomail', ['nombre' => $nombre, 'telefono' => $telefono, 'apellido' => $apellido, 'email' => $email, 'mensaje' => $mensaje], function ($message){
             $dato = Dato::first();
-            $message->from('info@aberturastolosa.com.ar', 'CRISTALMAM');
+            $message->from('ventas@meyargroup.com.ar', 'Contacto | Meyar');
             $message->to($dato->email);
             //Add a subject
             $message->subject('Consulta desde web');
@@ -142,4 +143,66 @@ class PaginasController extends Controller
         $productos = Producto::OrderBy('orden', 'ASC')->Where('promocion', '<>', 'ninguna')->get();
         return view('pages.ofertas', compact('productos', 'activo'));
     }
+
+    public function presupuesto()
+    {
+        $activo = 'presupuesto';
+        return view('pages.presupuesto', compact('activo'));
+    }
+
+    public function enviarpresupuesto(Request $request)
+    {
+        $activo = 'presupuesto';
+        $sliders   = Slider::orderBy('id', 'ASC')->Where('seccion', 'presupuesto')->get();
+        $nombre    = $request->nombre;
+        $mail      = $request->mail;
+        $localidad = $request->localidad;
+        $tel       = $request->tel;
+        $detalle   = $request->detalle;
+        $medida    = $request->medida;
+
+        $newid = producto::all()->max('id');
+        $newid++;
+
+        if ($request->hasFile('archivo')) {
+            if ($request->file('archivo')->isValid()) {
+                $file = $request->file('archivo');
+                $path = public_path('img/archivos/');
+                $request->file('archivo')->move($path, $newid . '_' . $file->getClientOriginalName());
+                $archivo = 'img/archivos/' . $newid . '_' . $file->getClientOriginalName();
+
+            }
+        }
+
+        Mail::send('pages.emails.presupuesto', ['nombre' => $nombre, 'tel' => $tel, 'mail' => $mail, 'localidad' => $localidad, 'detalle' => $detalle, 'medida' => $medida], function ($message) use ($archivo) {
+
+            $dato = Dato::first();
+            $message->from('ventas@meyargroup.com.ar', 'Meyar');
+
+            $message->to($dato->email);
+
+            //Attach file
+            $message->attach($archivo);
+
+            //Add a subject
+            $message->subject("Presupuesto");
+
+        });
+        if (Mail::failures()) {
+            $mensaje = 'Ha ocurrido un error al enviar el correo';
+            return view('pages.presupuesto', compact('activo', 'mensaje'));
+        }else{
+            $mensaje = 'Solicitud enviada correctamente!!'; 
+            return view('pages.presupuesto', compact('activo', 'mensaje'));
+        }
+    }
+
+    public function empresa()
+    {
+        $activo = 'empresa';
+        $valores = Valor_agregado::OrderBy('id', 'ASC')->get();
+        $empresa = Contenido_empresa::first();
+        return view('pages.empresa', compact('empresa', 'activo', 'valores'));
+    }
+
 }

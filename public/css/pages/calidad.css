@@ -1,17 +1,19 @@
 .nombrecalidad{
-	color: #F07D00;
+	color: #8C302E;
 	font-family: 'Montserrat', sans-serif;
-	font-size: 22px;
+	font-size: 38px;
+	font-weight: 600;
 }
 .descripcioncalidad{
 	color: #F07D00;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 38px;
-	font-weight: bold;
+	font-weight: 400;
 }
 
 .descripcioncalidad p{
 	margin-top: 0;
+	margin-bottom: 0;
 }
 
 .contenidocalidad{
@@ -19,28 +21,39 @@
 	font-family: 'Montserrat', sans-serif;
 	font-size: 20px;
 }
-
+/* 
 .contenidocalidad p{
-    margin-top: 7%;
-}
+    
+} */
 
 .descripcion2calidad{
 	color: #F07D00;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 28px;
-	font-weight: bold;
+}
+
+.blointem{
+	margin-bottom: 2%;
+}
+
+.nombrevalor{
+	font-size: 22px;
+    color: #8E2E2C;
+    margin-bottom: 4%;
+    margin-top: 2%;
+    padding-left: 2%;
 }
 
 .lineacalidad{
 	width: 94%;
     color: #3F3F3F;
-    height: 3px;
-    background: #3F3F3F;
+    height: 2px;
+    background: #B0B0B0;
     border: transparent;
 }
 
 .dercalidad{
-	margin-top: 11.4%;
+
 }
 
 .seccion-banner {

@@ -1,0 +1,238 @@
+body{
+    font-family: 'Lato', sans-serif;     
+    }
+    
+    /* 
+    #### #  # #### #   # ##### ####  ####
+    #    #  # #    ##  #   #   #     #
+    #### #  # #### # # #   #   ####  ####
+    #    #  # #    #  ##   #   #        #
+    #    #### #### #   #   #   ####  ####
+    */
+    .fc20{
+       color: #DDDDDD;
+    }
+    
+    .fc21{
+      color: #727272;
+    }
+    
+    /*                    
+    ##### #### #   # #### #   # ####
+      #   #  # ## ## #  # ##  # #  #
+      #   #### # # # #### # # # #  #
+      #   #  # #   # #  # #  ## #  #
+      #   #  # #   # #  # #   # ####
+    */
+    .fs24{
+      font-size: 24px;
+    }
+    .fs22{
+      font-size: 22px;
+    }
+    .fs20{
+      font-size: 20px;
+    }
+    .fs18{
+      font-size: 18px;
+    }
+    .fs16{
+      font-size: 16px;
+    }
+    .fs15{
+      font-size: 15px;
+    }
+    .fs14{
+      font-size: 14px;
+    }
+    
+    /*                    
+    #### #### #    #### ###
+    #    #  # #    #  # #  #
+    #    #  # #    #  # # # 
+    #    #  # #    #  # # # 
+    #### #### #### #### #  #
+    */
+    
+    .cv20{
+      color: #4F559E;
+    }
+    
+    
+    
+    
+    /*
+    ######
+    HEADER
+    ######
+    */
+    
+    .header_letras{
+      margin: 0 20 20 0;
+      color: black;
+      padding-top: 68px;
+      border-top: 4px solid white;
+      outline: none;
+    }
+    .header_letras:hover
+    {
+      background-color: inherit;
+      color: green;
+      border-top: 4px solid green;
+      text-decoration: none;
+    }
+    .header_letras_activo{
+      margin: 0 20 20 0;
+      color: green;
+      padding-top: 68px;
+      border-top: 4px solid white;
+      outline: none;
+      border-top: 4px solid green;
+    }
+    .header_letras_activo:hover{
+      background-color: inherit;
+    }
+    
+    /*
+    ##########
+    PAGE INDEX
+    ##########
+    */
+    
+    /* SLIDER CAROUSEL - PRINCIPAL */
+    .container_carrusel{
+      border-top: 6px solid #222222;
+      background-color: rgba(0, 129, 0, 0.8);
+      padding-bottom: 40px;
+    }
+    
+    .box-caption{
+      background-color: rgba(0, 129, 0, 0.7);
+      padding-bottom: 13%;
+      margin-right: -21px;
+    }
+    
+    /* CAJAS CONTENEDORES PRODUCTOS */
+    .flex-container {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      
+      -webkit-flex-flow: row wrap;
+      justify-content: space-around;
+    }
+    
+    .flex-item {
+      justify-content: center;
+      background: inherit; /* default: color; */
+      padding: 5px;
+      width: 360px;
+      height: auto; /* default: 360px */
+      margin-top: 20px;
+      
+      line-height: 150px;
+      color: white;
+      font-weight: bold;
+      font-size: 1em;
+      text-align: center;
+    }
+    
+    .item-description{
+      border-top: 7px solid green;
+      background: #222222;
+      margin: 0;
+      padding: 15px;
+      color: white;
+    }
+    
+    .item-hover-img{
+      background: #222222;
+      margin: 0;
+      padding: 15px;
+      color: white;
+    }
+    
+    .letras_hipervinculo{
+      color: white;
+    }
+    
+    .letras_hipervinculo:hover{
+      color: white;
+      text-decoration: inherit;
+    }
+    
+    .letras_gris{
+      color: gray;
+    }
+    
+    .letras_negro{
+      color: black;
+    }
+    
+    /* CARRUSEL NUESTROS CLIENTES */
+    .ext1carousel{
+      background: #F5F5F5;
+      margin-top: 50px;
+      border-top: 1px solid gray;
+    
+    }  
+    
+    
+    /*
+    ##############
+    # CONTENEDOR #
+    #            #
+    #            #
+    #            #
+    #            #
+    #            #
+    ##############
+    */
+    .clientes-box{
+      border-top: 7px solid #4F559E;
+      background: #222222;
+      margin: 0;
+      padding: 15px;
+      color: white;
+      border: 1px solid #DDDDDD;
+      background: #F4F5F5;
+    }
+    
+    .clientes-box-img{
+      height: 250px;
+      width: 350px;
+      border: 1px solid #DDDDDD;
+    }
+    
+    
+    /*
+    .box{
+      background: inherit;
+      padding: 0 0 0 0;
+      margin:  0 0 0 0;
+      border: 1px solid #DDDDDD;
+    }
+    
+    .box-img{
+      margin: 0 0 0 0;
+      max-height: 358px;
+      max-width:  358px;
+      vertical-align: center;
+      align-items: center;
+    }
+    
+    .box-ltr{
+      border-top: 1px solid #DDDDDD;
+      background: #F5F5F5;
+      padding: 0 0 0 0;
+      margin:  0 0 0 0;
+      border:  0 0 0 0;
+    }
+    */
+    /* HOVER DE IMAGEN - PROYECTOS */

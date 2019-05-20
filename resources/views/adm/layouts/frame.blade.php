@@ -112,23 +112,6 @@
                         </div>
                     </li>
                     <li class="bold">
-                        <a href="{{route('usuarios.page')}}" class="collapsible-header waves-effect waves-admin">
-                            <i class="material-icons">
-                                home
-                            </i>
-                            Usuarios
-                        </a>
-                        {{-- <div class="collapsible-body">
-                            <ul>
-                                <li>
-                                    <a href="{{route('homes.index')}}">
-                                        
-                                    </a>
-                                </li>
-                            </ul>
-                        </div> --}}
-                    </li>
-                    <li class="bold">
                         <a class="collapsible-header waves-effect waves-admin">
                             <i class="material-icons">
                                 home
@@ -278,6 +261,50 @@
                                 </li>
                                 <li>
                                     <a href="{{route('redes.create')}}">
+                                        Nuevo
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold">
+                        <a class="collapsible-header waves-effect waves-admin">
+                            <i class="material-icons">
+                                home
+                            </i>
+                            Descuentos
+                        </a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="{{route('descuentos.index')}}">
+                                        Listado
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{route('descuentos.create')}}">
+                                        Nuevo
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold">
+                        <a class="collapsible-header waves-effect waves-admin">
+                            <i class="material-icons">
+                                home
+                            </i>
+                            Usuarios
+                        </a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="{{route('users.index')}}">
+                                        Listado
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{route('users.create')}}">
                                         Nuevo
                                     </a>
                                 </li>

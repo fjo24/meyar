@@ -26,7 +26,7 @@
                             {{-- @if($pro->id==$producto->id) --}}
                             <div class="col l4 s12 m4">
                                 <div class="card div-product">
-                                    <a href="{{-- {{ route('productoinfo', ['id' => $pro->id,'cat' => $categoria->id])}} --}}">
+                                    <a href="{{ route('productoinfo', $producto->id)}}">
                                         <div class="efecto hide-on-med-and-down">
                                             <span class="central" style="background-color: #8D302F;border-radius: 60px;">
                                                 <i class="center material-icons">
