@@ -92,9 +92,9 @@
                                 <div class="g-recaptcha" data-sitekey="6LfT-GQUAAAAALDE4kKAhJAYX2I10Ve1PwtaXBQV" required="">
                                 </div>
                                 <br>
-                                    <button class="btn waves-effect waves-light z-depth-0" name="action" style="background-color: #89B8E6;height: 38px;    width: 100px;color: white;font-weight: 500;    font-family: 'Asap', sans-serif;border-radius: 3px;" type="submit">
-                                        Enviar
-                                    </button>
+                                <button class="btn btn-default pull-right anima2 boton-siguiente" id="botonSiguienteEstado"  style="color:white; padding: 20px; background-color: #8D302F; border: none; width: 181px;border-radius: 6px; height: 42px!important;" type="button">
+                                        <span style="font-family: 'Montserrat';font-size: 13px;position: relative;bottom: 15px;font-weight: 400;">Enviar</span>
+                                </button>
                                 </br>
                             </div>
                         </div>

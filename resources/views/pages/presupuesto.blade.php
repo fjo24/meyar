@@ -25,14 +25,14 @@
                                             <div class="paso datos active col-xs-12 col-sm-2 col-md-2 col-lg-2 col-md-offset-1" id="elDiv1">
                                                 <span>
                                                 </span>
-                                                <p class="fuenteRC hide-on-med-and-down" style="position: absolute; color: #FF0000; width: 100px;left: 480%; margin-top: 129%;">
+                                                <p class="fuenteRC hide-on-med-and-down" style="position: absolute; color: #8D302F; width: 100px;left: 480%; margin-top: 129%;">
                                                     TU OBRA
                                                 </p>
                                             </div>
                                             <div class="paso obra col-xs-12 col-sm-4 col-md-4 col-lg-4 hide-on-med-and-down" id="elDiv2">
                                                 <span>
                                                 </span>
-                                                <p class="fuenteRC" style="width: 100px;color: #FF0000; position: absolute; left: 78%; font-weight: bold; top: 9px;">
+                                                <p class="fuenteRC" style="width: 100px;color: #8D302F; position: absolute; left: 78%; font-weight: bold; top: 9px;">
                                                     TUS DATOS
                                                 </p>
                                             </div>
@@ -66,8 +66,8 @@
                                                         <br>
                                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cont-btn">
                                                                 <!-- <a href="presupuesto.php">Paso anterior</a> -->
-                                                                <button class="btn btn-default pull-right anima2 boton-siguiente" id="botonSiguienteEstado" style="background-color: #FF0000" type="button">
-                                                                    Siguiente
+                                                                <button class="btn btn-default pull-right anima2 boton-siguiente" id="botonSiguienteEstado"  style="color:white; padding: 20px; background-color: #8D302F; border: none; width: 181px;border-radius: 6px; height: 42px!important;" type="button">
+                                                                        <span style="font-family: 'Montserrat';font-size: 13px;position: relative;bottom: 15px;font-weight: 400;">Siguiente</span>
                                                                 </button>
                                                             </div>
                                                         </br>
@@ -82,7 +82,7 @@
                                         <div class="paso datos active col-xs-12 col-sm-2 col-md-2 col-lg-2 col-md-offset-1" id="elDiv1">
                                             <span>
                                             </span>
-                                            <p class="fuenteRC" style="position: absolute; right:-19px; color: #FF0000; font-weight: lighter; width: 100px; margin-top: 116%;">
+                                            <p class="fuenteRC" style="position: absolute; right:-19px; color: #8D302F; font-weight: lighter; width: 100px; margin-top: 116%;">
                                                 TUS DATOS
                                             </p>
                                         </div>
@@ -92,7 +92,7 @@
                                             <div class="paso obra col-xs-12 col-sm-4 col-md-4 col-lg-4" id="elDiv2">
                                                 <span>
                                                 </span>
-                                                <p class="fuenteRC" style="position: absolute; width: 100%;left: 184%;top:8px;color: #FF0000; font-weight: bold;">
+                                                <p class="fuenteRC" style="position: absolute; width: 100%;left: 184%;top:8px;color: #8D302F; font-weight: bold;">
                                                     TU OBRA
                                                 </p>
                                             </div>
@@ -116,7 +116,7 @@
                                                         <div class="input-group">
                                                             <!--      <input type="text" name="plano" id="plano" placeholder="Plano (opcional)"  class="col-xs-10 form-control plano-margen" style="">-->
                                                             <div class="file-field input-field col s12">
-                                                                <div class="btn" style="background-color: #FF0000;">
+                                                                <div class="btn" style="background-color: #8D302F;">
                                                                     <span>
                                                                         Archivo
                                                                     </span>
@@ -130,10 +130,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cont-btn">
-                                                    <button class="btn btn-default pull-right anima2 boton-enviar fuenteRC" style="background-color: #FF0000;" type="submit">
+                                                    <button class="btn btn-default pull-right anima2 boton-enviar fuenteRC" style="background-color: #8D302F;width: 181px;" type="submit">
                                                         Enviar
                                                     </button>
-                                                    <button class="btn btn-default pull-right anima2 boton-atras fuenteRC" id="botonEstadoAnterior" style="background-color: white!important; border:2px solid #FF0000;color: #FF0000; margin: 0px 5px;" type="button">
+                                                    <button class="btn btn-default pull-right anima2 boton-atras fuenteRC" id="botonEstadoAnterior" style="background-color: white!important; border:2px solid #8D302F;color: #8D302F; margin: 0px 5px;width: 181px;" type="button">
                                                         Anterior
                                                     </button>
                                                 </div>

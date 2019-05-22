@@ -5,13 +5,13 @@
 @section('contenido')
 <link href="{{ asset('css/privada/zproductos.css') }}" rel="stylesheet" type="text/css"/>
 <div class="container" style="width: 89%; margin-bottom: 7%; margin-top: 5%;">
-    <div class="lista_precios">
+    <div class="lista_precios center">
         Lista de precios
     </div>
     <div class="center">
         <div class="imagen_catalogo">
                 <a href="{{ route('file-pdf2', ['post' => $catalogo->id])}}">
-                    <img alt="" src="{{asset('img/catalogo.jpg')}}">
+                    <img alt="" src="{{asset('img/listadeprecios.png')}}">
                     </img>
                 </a>
             </input>
@@ -20,7 +20,7 @@
         <a style="color:#595959;" href="{{ route('file-pdf2', ['post' => $catalogo->id])}}">
                     <img alt="" src="{{asset('img/descarga.png')}}">
                     </img>
-            Descargar Catalogo
+            Descargar Nueva Lista 2019
                 </a>
         </div>
     </div>

@@ -78,7 +78,7 @@
                             @endif
                             @if($activo=='productos')
                             <li class="activo item-m" {{-- id="menu_productos" --}}>
-                            <a class="{{-- prod_menu --}}" href="{{route('page.categorias')}}">
+                            <a class="{{-- prod_menu --}}" href="{{route('carrito')}}">
                                     CARRITO
                                 </a>
                                 <!-- 
@@ -97,7 +97,7 @@
                             </li>
                             @else
                             <li class="item-m" {{-- id="menu_productos" --}}>
-                                <a class="{{-- prod_menu --}}item-m" href="{{route('page.categorias')}}">
+                                <a class="{{-- prod_menu --}}item-m" href="{{route('carrito')}}">
                                     CARRITO
                                 </a>
                             <!--   <ul style="margin-top: -2%!important;">
@@ -118,16 +118,16 @@
                     </div>
                     <div class="col l6 m6 s6 center">
                         <ul class="item-left center hide-on-med-and-down">
-                            @if($activo=='ofertas')
+                            @if($activo=='catalogo')
                             <li class="activo item-m" style="margin: 0px 94px;">
-                            <a href="{{route('ofertas')}}">
-                                    OFERTAS
+                            <a href="{{route('listadeprecios')}}">
+                                    LISTA DE PRECIOS
                                 </a>
                             </li>
                             @else
                             <li class="item-m" style="margin: 0px 85px;">
-                                <a href="{{route('ofertas')}}">
-                                    OFERTAS
+                                <a href="{{route('listadeprecios')}}">
+                                    LISTA DE PRECIOS
                                 </a>
                             </li>
                             @endif

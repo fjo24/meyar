@@ -5,6 +5,7 @@ use App\Dato;
 use App\Red;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use App\Categoria;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -30,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
         $dato   = Dato::first();
         $facebook   = Red::where('descripcion', 'facebook')->first();
         $youtube    = Red::where('descripcion', 'youtube')->first();
+        $rubros    = Categoria::OrderBy('orden', 'ASC')->get();
 
         view()->share([
             'telefono'   => $dato->telefono,
@@ -37,6 +39,7 @@ class AppServiceProvider extends ServiceProvider
             'email'      => $dato->email,
             'facebook'   => $facebook,
             'youtube'    => $youtube,
+            'rubros'    => $rubros,
         ]);
     }
 }

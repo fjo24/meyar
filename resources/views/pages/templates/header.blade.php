@@ -3,7 +3,7 @@
     <nav class="principal">
         <div class="container" style="width: 80%">
             <a href="#" data-target="slide-out" class="sidenav-trigger" style=" "><i class="material-icons" style="color: white;">menu</i></a>
-            <div class="row" style="margin-bottom: 1%;">
+            <div class="row" style="margin-bottom: 1.5%;">
                 <div class="col l12 m12 s12">
                     <div class="redeshead col l4 m4 s4 center">
                         <ul class="center" style="margin-left: 38%;margin-top: 7%;">
@@ -23,8 +23,8 @@
                         </ul>
                     </div>
                     <div class="col l4 m4 s4">
-                        <a class="brand-logo center" style="left: 51%; z-index: 5;" href="{{ url('/') }}">
-                            <img alt="" src="{{asset('img/logo.png')}}">
+                        <a class="brand-logo center" style="left: 49.9%; z-index: 5;" href="{{ url('/') }}">
+                            <img alt="" src="{{asset('img/logo_blanco.png')}}">
                             </img>
                         </a>
                     </div>
@@ -37,19 +37,19 @@
                                     </a>
                                 </li>
                                 <li class="privado_head">
-                               {{--  @if(Auth::user())
+                                @if(Auth::user())
                                     <div class="dropdown-trigger hide-on-med-and-down">
                                         <a href="{{ route('zproductos')}}" style="color: #595959; margin: 3% 0%;">
                                             Zona privada
                                         </a>
                                     </div>
-                                    @else --}}
+                                    @else
                                     <div class="dropdown-trigger hide-on-med-and-down" data-target="dropdown1">
                                         <span href="zonaprivada/productos" style="color: #595959; margin: 3% 0%;">
                                             Zona privada
                                         </span>
                                     </div>
-                                                                                                            <!-- Dropdown LOGIN -->
+                                @endif                                                                  <!-- Dropdown LOGIN -->
                 <div class="areaprivada">
                         <ul class="dropdown-content" id="dropdown1" style="background: none, width:400px!important; height: 282px!important;">
                             <div class="container" style="background: #FAFAFA; margin-top: 19px !important; outline: none; width: 282px;height: 62px;">
@@ -80,7 +80,7 @@
                                     </input>
                                 </div>
                                 <li class="center" style="font-size: 12px;color: pink; text-decoration: none;">
-                                    <a href="{{route('registro')}}" style="color: #F07D00!important; text-align: center;">
+                                    <a href="{{route('registro')}}" style="color: #8D302F!important; text-align: center;">
                                         CREAR UNA CUENTA NUEVA
                                     </a>
                                 </li>
@@ -174,13 +174,13 @@
                     <div class="col l6 m6 s6 center">
                         <ul class="item-left center hide-on-med-and-down">
                             @if($activo=='ofertas')
-                            <li class="activo item-m" style="margin: 0px -9px;">
+                            <li class="activo item-m" style="margin: 0px 0px;">
                             <a href="{{route('ofertas')}}">
                                     OFERTAS
                                 </a>
                             </li>
                             @else
-                            <li class="item-m" style="margin: 0px -9px;">
+                            <li class="item-m" style="margin: 0px 0px;">
                                 <a href="{{route('ofertas')}}">
                                     OFERTAS
                                 </a>

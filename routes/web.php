@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/denied', ['as' => 'denied', function() {
+    return view('denied');
+}]);
 
 Route::get('/', function () {
     return view('welcome');
@@ -35,6 +38,11 @@ Route::get('/ofertas',  'PaginasController@ofertas')->name('ofertas');
 
 //EMPRESA
 Route::get('/empresa',  'PaginasController@empresa')->name('empresa');
+
+//REGISTRO DE DISTRIBUIDORES
+Route::get('registro', ['uses' => 'DistribuidorController@index', 'as' => 'registro']);
+Route::post('/registro', ['uses' => 'DistribuidorController@store', 'as' => 'cliente.store']);
+Route::post('/nuevousuario', ['uses' => 'DistribuidorController@registroStore', 'as' => 'registro.store']);
 
 //SOLICITAR PRESUPUESTO
 Route::get('/presupuesto',  'PaginasController@presupuesto')->name('presupuesto');
@@ -92,67 +100,73 @@ Route::post('enviar-mailcontacto', [
 ]);
 
 /*******************ADMIN************************/
-Route::prefix('adm')->group(function () {
+Route::prefix('adm')->middleware('auth')->group(function () {
     
-    /*------------DESCUENTOS----------------*/
-    Route::resource('descuentos', 'Adm\DescuentosController')/* ->middleware('admin') */;
-
+    /*------------LOGIN----------------*/
+    /* Route::get('/', 'Adm\AdminController@dashboard'); */
+    
     Route::get('/', 'Adm\AdminController@dashboard')->name('dashboard');
+    /*------------DESCUENTOS----------------*/
+    Route::resource('descuentos', 'Adm\DescuentosController')->middleware('admin');
+
 
     /*------------USERS----------------*/
-    Route::resource('users', 'Adm\UsersController')/* ->middleware('admin') */;
+    Route::resource('users', 'Adm\UsersController')->middleware('admin');
+    
+    /*------------PEDIDOS----------------*/
+    Route::resource('pedidos', 'Adm\PedidosController')->middleware('admin');
 
     /*------------DATOS----------------*/
-    Route::get('/datos-page', 'Adm\DatosController@page')->name('datos.page');
-    Route::resource('datos', 'Adm\DatosController');
+    Route::get('/datos-page', 'Adm\DatosController@page')->name('datos.page')->middleware('admin');
+    Route::resource('datos', 'Adm\DatosController')->middleware('admin');
     
     /*------------USUARIOS----------------*/
-    Route::get('/usuarios-page', 'Adm\UsuariosController@page')->name('usuarios.page');
-    Route::resource('usuarios', 'Adm\UsuariosController');
+    Route::get('/usuarios-page', 'Adm\UsuariosController@page')->name('usuarios.page')->middleware('admin');
+    Route::resource('usuarios', 'Adm\UsuariosController')->middleware('admin');
     
     /*------------SLIDERS----------------*/
-    Route::resource('sliders', 'Adm\SlidersController');
+    Route::resource('sliders', 'Adm\SlidersController')->middleware('admin');
     
     /*------------BANNER----------------*/
-    Route::resource('banner', 'Adm\BannerController');
+    Route::resource('banner', 'Adm\BannerController')->middleware('admin');
 
      /*------------SERVICIOS----------------*/
-     Route::resource('servicios', 'adm\ServiciosController');
+     Route::resource('servicios', 'adm\ServiciosController')->middleware('admin');
     
     /*------------CATEGORIAS----------------*/
-    Route::resource('categorias', 'Adm\CategoriasController');
+    Route::resource('categorias', 'Adm\CategoriasController')->middleware('admin');
     
     /*------------CONTENIDO EMPRESAS----------------*/
-    Route::resource('contenido_empresas', 'Adm\ContenidoEmpresasController');
+    Route::resource('contenido_empresas', 'Adm\ContenidoEmpresasController')->middleware('admin');
     
     /*------------VALOR AGREGADO----------------*/
-    Route::resource('valor_agregados', 'Adm\AgregadosController');
+    Route::resource('valor_agregados', 'Adm\AgregadosController')->middleware('auth')->middleware('admin');
     
     /*------------REDES----------------*/
-    Route::resource('redes', 'Adm\RedesController');
+    Route::resource('redes', 'Adm\RedesController')->middleware('admin');
     
     /*------------PRODUCTOS----------------*/
-    Route::resource('productos', 'Adm\ProductosController');
+    Route::resource('productos', 'Adm\ProductosController')->middleware('admin');
     
     /*------------IMAGENES----------------*/
-    Route::get('producto/{producto_id}/imagenes/', 'Adm\ProductosController@imagenes')->name('imgproducto.lista'); //index del modulo imagenes
+    Route::get('producto/{producto_id}/imagenes/', 'Adm\ProductosController@imagenes')->name('imgproducto.lista')->middleware('admin'); //index del modulo imagenes
     //agregar nuevas imagenes de productos
-    Route::post('producto/nuevaimagen/{id}', 'Adm\ProductosController@nuevaimagen')->name('imgproducto.nueva'); //es el store de las imagenes
+    Route::post('producto/nuevaimagen/{id}', 'Adm\ProductosController@nuevaimagen')->name('imgproducto.nueva')->middleware('admin'); //es el store de las imagenes
     Route::delete('imgproducto/{id}/destroy', [
         'uses' => 'Adm\ProductosController@destroyimg',
         'as'   => 'imgproducto.destroy',
-    ]);
+    ])->middleware('admin');
 
     /*------------CATALOGOS----------------*/
-    Route::resource('catalogos', 'Adm\CatalogosController');
+    Route::resource('catalogos', 'Adm\CatalogosController')->middleware('admin');
     // Rutas de reportes pdf
-    Route::get('pdf/{id}', ['uses' => 'Adm\CatalogosController@downloadPdf', 'as' => 'file-pdf']);
+    Route::get('pdf/{id}', ['uses' => 'Adm\CatalogosController@downloadPdf', 'as' => 'file-pdf'])->middleware('admin');
 
     //DASHBOARD
-    Route::get('/dashboard', 'Adm\AdminController@admin');
+    Route::get('/dashboard', 'Adm\AdminController@admin')->middleware('admin');
     
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('admin')->middleware('auth');

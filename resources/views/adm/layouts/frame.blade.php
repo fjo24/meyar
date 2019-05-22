@@ -89,8 +89,8 @@
             <ul class="sidenav sidenav-fixed" id="slide-out">
                 <div class="logo">
                     <a class="brand-logo" href="" id="logo-container">
-                        {{-- <img alt="" class="responsive-img" src="{{ asset('img/logo_principal.jpg') }}">
-                        </img> --}}
+                        <img alt="" class="responsive-img" src="{{ asset('img/logo_blanco.png') }}">
+                        </img>
                     </a>
                 </div>
                 <ul class="collapsible collapsible-accordion">
@@ -294,6 +294,23 @@
                             <i class="material-icons">
                                 home
                             </i>
+                            Catalogo
+                        </a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="{{route('catalogos.index')}}">
+                                        Editar
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="bold">
+                        <a class="collapsible-header waves-effect waves-admin">
+                            <i class="material-icons">
+                                home
+                            </i>
                             Usuarios
                         </a>
                         <div class="collapsible-body">
@@ -311,6 +328,23 @@
                             </ul>
                         </div>
                     </li>
+                    {{-- <li class="bold">
+                        <a class="collapsible-header waves-effect waves-admin">
+                            <i class="material-icons">
+                                home
+                            </i>
+                            Pedidos
+                        </a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li>
+                                    <a href="{{route('pedidos.index')}}">
+                                        Ver historial
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li> --}}
                 </ul>
             </ul>
         </header>

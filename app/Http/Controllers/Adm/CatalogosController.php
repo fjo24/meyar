@@ -10,13 +10,8 @@ class CatalogosController extends Controller
 {
     public function index()
     {
-        $catalogos = Catalogo::orderBy('nombre', 'ASC')->get();
-        return view('adm.catalogos.index', compact('catalogos'));
-    }
-
-    public function create()
-    {
-        return view('adm.catalogos.create');
+        $catalogo = Catalogo::orderBy('nombre', 'ASC')->first();
+        return redirect()->route('catalogos.edit', $catalogo->id);
     }
 
     public function store(Request $request)

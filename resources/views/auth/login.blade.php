@@ -30,7 +30,7 @@
         <div class="container">
             <div class="row">
                 <div class="logo-login">
-                    <img class="center responsive-img" src="{{ asset('img/logo_principal.png') }}" alt="">
+                    <img class="center responsive-img" src="{{ asset('img/logo_blanco.png') }}" alt="">
                 </div>
                 {!!Form::open(['route'=>'login', 'method'=>'POST', 'class' => 'col s12'])!!}
                     <div class="row">
@@ -48,7 +48,7 @@
                         </div>
                     </div>
 
-                    <button class="btn-large waves-effect waves-light orange right" name="action" type="submit">
+                    <button class="btn-large waves-effect waves-light right" name="action" type="submit" style="background-color: #8D302F;">
                         Entrar
                         <i class="material-icons right">
                             send

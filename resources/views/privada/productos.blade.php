@@ -18,7 +18,7 @@
                     PEDIDOS
                 </div>
                 <div class="right"><a href="{{ route('carrito') }}">
-                    <button class="enviar" class="bg-azul" href="" style="position: relative;bottom:30px;border-radius: 12px;padding: initial!important;color:white; padding: 20px; background-color: #3F3F3F; border: none; width: 181px;height: 42px!important;"><span
+                    <button class="enviar" class="bg-azul" href="" style="position: relative;bottom:30px;border-radius: 12px;padding: initial!important;color:white; padding: 20px; background-color: #8D302F; border: none; width: 181px;height: 42px!important;"><span
                                 style="font-family: 'Montserrat';font-size: 13px;font-weight: bold;">FINALIZAR
                                 COMPRA</span></button></a>
                 </div>
@@ -103,8 +103,16 @@ $("#cant"+modelo).html("<input type='number' min='1' id='1' name='cantidades' va
         {{ Form::hidden('codigo', $producto->codigo) }}
     </td>
     <td class="tablamodelos">
-        {!! '$'.$producto->precio !!}
-        {{ Form::hidden('precio', $producto->precio) }}
+        @if(Auth::user()->nivel == 'ortopedia')
+            {!! '$'.$producto->precio !!}
+            {{ Form::hidden('precio', $producto->precio) }}
+        @elseif(Auth::user()->nivel == 'obra_social')
+            {!! '$'.$producto->precio*1.2 !!}
+            {{ Form::hidden('precio', $producto->precio*1.2) }}
+        @else
+            {!! '$'.$producto->precio*1.4 !!}
+            {{ Form::hidden('precio', $producto->precio*1.4) }}
+        @endif
     </td>
     <td class="tablamodelos">
         {{-- <label for="cantidad">Cantidad</label> --}}
@@ -134,7 +142,7 @@ $("#cant"+modelo).html("<input type='number' min='1' id='1' name='cantidades' va
             </div>
             <input type="hidden" class="enviar" name="oldcantidad" value="" id="oldcant{{$producto->id}}">
         @endif
-                                    @else
+        @else
         <div id="ct{{$producto->id}}" class="left">
             <input type="number" min="1" class="enviar" id="cant{{$producto->id}}" name="cantidad"
                 value="" style="width: 46px;" required>
@@ -143,7 +151,6 @@ $("#cant"+modelo).html("<input type='number' min='1' id='1' name='cantidades' va
         @endif
     </td>
     <td class="tablamodelos">
-
         @isset($items)
             @foreach($items as $item)
                 @if($item->id==$producto->id)
@@ -157,7 +164,6 @@ $("#cant"+modelo).html("<input type='number' min='1' id='1' name='cantidades' va
                     <button id="{{$producto->id}}" producto="{{$producto->id}}" class="enviar" class="bg-azul" href=""
                 style="position: relative;border-radius: 8px;padding: initial!important;color: white;padding: 20px;background-color: transparent;
     border: none;width: 65px;height: 42px!important;"><img src='{{asset('/img/check.png')}}' style='font-size: 30px;height: 30px;'></button>
-                    
         </div>
             {{-- @endif --}}
                 @endif
@@ -171,25 +177,20 @@ $("#cant"+modelo).html("<input type='number' min='1' id='1' name='cantidades' va
                         style="font-family: 'Asap';font-size: 11px;font-weight: bold;">AGREGADO</span></button> --}}
                         <button id="{{$producto->id}}" producto="{{$producto->id}}" class="enviar" class="bg-azul" href=""
                     style="position: relative;border-radius: 8px;padding: initial!important;color: white;padding: 20px;background-color: transparent;
-        border: none;width: 65px;height: 42px!important;"><img src='{{asset('/img/carrito.png')}}' style='font-size: 30px;height: 30px;'></button>
-                        
+        border: none;width: 65px;height: 42px!important;"><img src='{{asset('/img/carrito.png')}}' style='font-size: 30px;height: 30px;'></button>          
             </div>
     @endif
     <?php $shop = 0; ?>
-
     </td>
-
     </tr>
     {{-- @endforeach
  --}}
-
     @endforeach
-
     </tbody>
     </table>
     <div class="right"><a href="{{ route('carrito') }}">
             <button class="enviar" class="bg-azul" href=""
-                style="position: relative;bottom:95px;border-radius: 12px;padding: initial!important;color:white; padding: 20px; background-color: #3F3F3F; border: none; width: 181px;height: 42px!important;"><span
+                style="position: relative;bottom:95px;border-radius: 12px;padding: initial!important;color:white; padding: 20px; background-color: #8D302F; border: none; width: 181px;height: 42px!important;"><span
                     style="font-family: 'Montserrat';font-size: 13px;font-weight: bold;">FINALIZAR
                     COMPRA</span></button></a>
     </div>
@@ -197,8 +198,6 @@ $("#cant"+modelo).html("<input type='number' min='1' id='1' name='cantidades' va
     </div>
     </div>
 </body>
-
-
 @endsection
 @section('js')
 <script class="init" type="text/javascript">
@@ -230,13 +229,11 @@ $("#registro").click(function(){
             });
         });
     });    
-
     $(document).ready(function(){
         $("#formpedido").on("change", "input:checkbox", function(){
             $("#formpedido").submit();
         });
     });
-
   $(document).ready(function(){
     $('.modal').modal();
   });

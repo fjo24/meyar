@@ -29,6 +29,7 @@ class DistribuidorController extends Controller
         $usuario->activo  = 1;
         $usuario->direccion = $request->direccion;
         $usuario->postal       = $request->postal;
+        $usuario->nivel       = $request->nivel;
         $usuario->email     = $request->email;
         $usuario->password       = \Hash::make($request->password);
         $usuario->save();

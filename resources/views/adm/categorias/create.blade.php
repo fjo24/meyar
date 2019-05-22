@@ -29,7 +29,7 @@
             </div>
             <div class="input-field col l6 s12">
                 {!!Form::label('orden:')!!}
-						{!!Form::text('orden', null , ['class'=>'', 'required'])!!}
+				{!!Form::text('orden', null , ['class'=>'', 'required'])!!}
             </div>
             <div class="file-field input-field col l6 s12">
                 {!! Form::label('Categoria padre', 'Categoria padre (opcional)') !!} 
