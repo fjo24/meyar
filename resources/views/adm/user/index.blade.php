@@ -36,7 +36,7 @@
 							<td class="text-right">
 								<a href="{{ route('users.edit',$user->id)}}"><i class="material-icons">create</i></a>
 								{!!Form::open(['class'=>'en-linea', 'route'=>['users.destroy', $user->id], 'method' => 'DELETE'])!!}
-									<button onclick='return confirm_delete(this);' type="submit" class="submit-button">
+									<button  onclick="return confirm('¿Realmente deseas borrar el usuario?')" type="submit" class="submit-button">
 										<i class="material-icons red-text">cancel</i>
 									</button>
 								{!!Form::close()!!}

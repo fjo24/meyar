@@ -22,6 +22,9 @@ class SlidersController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'seccion' => 'link'
+        ]);
         $slider          = new Slider();
         $slider->texto   = $request->texto;
         $slider->texto2  = $request->texto2;
@@ -49,13 +52,13 @@ class SlidersController extends Controller
         return view('adm.sliders.edit')
             ->with('slider', $slider);
     }
-    public function show($id)
-    {
-
-    }
-
+    
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'seccion' => 'required'
+        ]);
+
         $slider          = Slider::find($id);
         $id              = Slider::all()->max('id');
         $slider->texto   = $request->texto;

@@ -112,7 +112,8 @@ class PaginasController extends Controller
     public function contacto()
     {
         $activo = 'contacto';
-        return view('pages.contacto', compact('activo'));
+        $enviado = 0;
+        return view('pages.contacto', compact('activo', 'enviado'));
     }
     public function enviarmailcontacto(Request $request)
     {
@@ -134,7 +135,8 @@ class PaginasController extends Controller
         if (Mail::failures()) {
             return view('pages.contacto', compact('activo'));
         }
-        return back();
+        $enviado = 1;
+        return view('pages.contacto', compact('activo', 'enviado'));
     }
 
     public function ofertas()
@@ -203,6 +205,24 @@ class PaginasController extends Controller
         $valores = Valor_agregado::OrderBy('id', 'ASC')->get();
         $empresa = Contenido_empresa::first();
         return view('pages.empresa', compact('empresa', 'activo', 'valores'));
+    }
+
+    public function buscar(Request $request)
+    {
+
+        $activo    = 'productos';
+        $id = 1;
+        $subcat = Categoria::find($id);
+        $categoria = Categoria::find($id);
+        $ready = 0;
+        $categorias = Categoria::OrderBy('orden', 'asc')->Where('categoria_id', null)->get();
+        $activo    = 'productos';
+        $productos = Producto::OrWhere('codigo', 'like', '%' . $request->busqueda . '%')
+        ->OrWhere('descripcion', 'like', '%' . $request->busqueda . '%')
+        ->get();
+        /* return $productos; */
+        return view('pages.buscador', compact('relacionados', 'categoria', 'activo', 'subcat', 'productos', 'categorias', 'producto'));
+
     }
 
 }

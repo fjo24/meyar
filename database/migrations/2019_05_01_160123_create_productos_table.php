@@ -31,6 +31,7 @@ class CreateProductosTable extends Migration
             $table->string('cantidad')->nullable();
             
             $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

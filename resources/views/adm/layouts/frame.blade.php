@@ -259,11 +259,6 @@
                                         Listado
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="{{route('redes.create')}}">
-                                        Nuevo
-                                    </a>
-                                </li>
                             </ul>
                         </div>
                     </li>

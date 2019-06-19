@@ -32,6 +32,15 @@
                 <div class="logo-login">
                     <img class="center responsive-img" src="{{ asset('img/logo_blanco.png') }}" alt="">
                 </div>
+                @if(count($errors) > 0)
+				<div class="col s12 card-panel text-darken-4" style="background-color:#8D302F; color: white" role "alert">
+						<ul>
+							@foreach($errors-> all() as $error)
+								<li>{{ $error }}</li>
+							@endforeach	
+						</ul>	
+					</div>
+				@endif
                 {!!Form::open(['route'=>'login', 'method'=>'POST', 'class' => 'col s12'])!!}
                     <div class="row">
                         <div class="input-field col s12">

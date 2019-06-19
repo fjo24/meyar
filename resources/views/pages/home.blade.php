@@ -32,22 +32,24 @@
     <div class="row bloquecard col l12 s12 m12">
         @foreach($productos as $producto)
         <div class="col l3 s12 m6">
-            <div class="card white darken-1" style="">
-                <div class="card-content white-text">
-                    <div class="{{-- center masproducto hide-on-med-and-down  --}}col l12 m12 s12">
-                        <img src="{{asset($producto->imagen)}}" style="width: 237px; height: 221px;">
+            <a href="{{ route('productoinfo', $producto->id)}}">
+                <div class="card white darken-1" style="">
+                    <div class="card-content white-text">
+                            <div class="{{-- center masproducto hide-on-med-and-down  --}}col l12 m12 s12">
+                                <img src="{{asset($producto->imagen)}}" style="width: 237px; height: 221px;">
+                        </div>
+                    </div>
+                    <div class="card-action" style="padding-top: 5%; height:96px">
+                        <div class="titulo_video" style="text-align: center;width: 100%;">
+                                {{$producto->codigo}}
+                        </div>
+                        <div class="contenido_video" style="text-align: center;width: 100%;">
+                                {{$producto->descripcion}}
+                            </div>
+                        </a>
                     </div>
                 </div>
-                <div class="card-action" style="padding-top: 5%; height:96px">
-                    <div class="titulo_video" style="text-align: center;width: 100%;">
-                        {{$producto->codigo}}
-                    </div>
-                    <div class="contenido_video" style="text-align: center;width: 100%;">
-                        {{$producto->descripcion}}
-                    </div>
-                    </a>
-                </div>
-            </div>
+            </a>
         </div>
         @endforeach
     </div>
@@ -76,7 +78,9 @@
                         {!! $banner->texto2 !!}
                     </p>
                     <div>
-                        <button class="btn btn-ingresar">INGRESAR</button>
+                        <a href="{{route('presupuesto')}}">
+                            <button class="btn btn-ingresar">INGRESAR</button>
+                        </a>
                     </div>
                 </div>
             </div>

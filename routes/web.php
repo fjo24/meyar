@@ -14,6 +14,8 @@ Route::get('/denied', ['as' => 'denied', function() {
     return view('denied');
 }]);
 
+/* Route::post('busqueda', ['uses' => 'PaginasController@buscador', 'as' => 'busqueda']); */
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -64,7 +66,13 @@ Route::post('/store', 'ZprivadaController@store')->name('store');
 //****************************************ZONA PRIVADA**************************************************************************************************************************************************
 Route::get('/zonaprivada/productos', 'ZprivadaController@productos')->name('zproductos')->middleware('auth');
 //BUSCADOR
-Route::post('/buscador', ['uses' => 'BuscadorController@getProducts', 'as' => 'buscador']);
+/* Route::post('/buscador', ['uses' => 'BuscadorController@getProducts', 'as' => 'buscador']); */
+
+//BUSCADOR
+Route::post('productos/buscar', [
+    'uses' => 'PaginasController@buscar',
+    'as'   => 'buscar',
+]);
 
 //novedades y ofertas
 Route::get('/zonaprivada/ofertasynovedades', 'ZprivadaController@ofertasynovedades')->name('ofertasynovedades')->middleware('auth');

@@ -8,6 +8,11 @@
     <main>
         <iframe allowfullscreen="" frameborder="0" height="450" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3286.8081743798675!2d-58.563315985396336!3d-34.533087680477855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcba0c13332261%3A0x677e831f3825814!2sItalia+6344%2C+Jos%C3%A9+Le%C3%B3n+Su%C3%A1rez%2C+Buenos+Aires!5e0!3m2!1ses-419!2sar!4v1557712615585!5m2!1ses-419!2sar" style="border:0" width="100%">
         </iframe>
+        @if($enviado == 1)
+            <div class="col s12 card-panel green lighten-4 green-text text-darken-4">
+                El mensaje fue enviado correctamente
+            </div>
+        @endif
         <section class="contacto">
             <div class="container">
                 <div class="row">

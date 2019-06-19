@@ -24,7 +24,7 @@
                     </div>
                     <div class="col l4 m4 s4">
                         <a class="brand-logo center" style="left: 51%; z-index: 5;" href="{{ url('/') }}">
-                            <img alt="" src="{{asset('img/logo.png')}}">
+                            <img alt="" src="{{asset('img/logo_blanco.png')}}">
                             </img>
                         </a>
                     </div>

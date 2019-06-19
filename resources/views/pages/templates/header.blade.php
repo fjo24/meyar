@@ -2,24 +2,28 @@
     {{-- BARRA PRINCIPAL --}}
     <nav class="principal">
         <div class="container" style="width: 80%">
-            <a href="#" data-target="slide-out" class="sidenav-trigger" style=" "><i class="material-icons" style="color: white;">menu</i></a>
+            <a href="#" data-target="slide-out" class="sidenav-trigger" style=" "><i class="material-icons" style="color: #8C302D;">menu</i></a>
             <div class="row" style="margin-bottom: 1.5%;">
                 <div class="col l12 m12 s12">
                     <div class="redeshead col l4 m4 s4 center">
                         <ul class="center" style="margin-left: 38%;margin-top: 7%;">
-                            <div class="col l3 m3 s3">
-                                <li class="redes_head" style="margin-top: 72%;">
-                                    <a class="" href="">
-                                        <img alt="" src="{{asset('img/lupa.png')}}">
-                                        </img>
-                                    </a>
-                                </li>
-                            </div>
-                            <div class="col l9 m9 s9">
-                                <li class="redes_head">
-                                    {!!Form::text('busqueda', null , ['class'=>'buscando', 'placeholder'=>'Estoy buscando' ,'required'])!!}
-                                </li>
-                            </div>
+                            <form method="POST" action="{{ route('buscar') }}" style="height: 0%;">
+                                {{ csrf_field() }}
+                                <div class="col l3 m3 s3">
+                                    <li class="redes_head  hide-on-med-and-down">
+<button type="submit" class="enviar" class="bg-azul" href=""
+style="position: relative;border-radius: 8px;padding: initial!important;color: white;padding: 20px;background-color: transparent;
+border: none;">
+<img src='{{asset('img/lupa.png')}}'>
+</button>
+                                    </li>
+                                </div>
+                                <div class="col l9 m9 s9 hide-on-med-and-down">
+                                    <li class="redes_head">
+                                        {!!Form::text('busqueda', null , ['class'=>'buscando', 'placeholder'=>'Estoy buscando' ,'required'])!!}
+                                    </li>
+                                </div>
+                            </form>
                         </ul>
                     </div>
                     <div class="col l4 m4 s4">
@@ -30,7 +34,7 @@
                     </div>
                     <div class="privadohead col l4 m4 s4 center">
                             <ul class="center" style="margin-left: 22%;margin-top: 7%;">
-                                <li class="privado_head" style="margin-top: 8%;">
+                                <li class="privado_head hide-on-med-and-down" style="margin-top: 8%;">
                                     <a class="" style="margin: 0;" href="{{ url('/') }}">
                                         <img alt="" src="{{asset('img/user.png')}}">
                                         </img>
@@ -241,41 +245,35 @@
                 </a>
             </li>
             <li class="bold">
-                <a href="" class="collapsible-header waves-effect waves-admin">
+                <a href="{{ route('page.categorias') }}" class="collapsible-header waves-effect waves-admin">
                     <i class="material-icons">
                         map
                     </i>
                     PRODUCTOS
                 </a>
-                <div class="collapsible-body">
-                  <!--          <ul>
-                                <li class="item-m">
-                                    <a href="">
-                                        SISTEMA
-                                    </a>
-                                </li>
-                                <li class="item-m">
-                                    <a href="">
-                                        RUBRO
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>-->
             </li>
             <li class="bold">
-                <a class="principalmovil collapsible-header waves-effect waves-admin" href="contacto">
+                <a class="principalmovil collapsible-header waves-effect waves-admin"  href="{{ route('ofertas') }}">
                     <i class="material-icons">
                         new_releases
                     </i>
-                    VIDEOS
+                    OFERTAS
                 </a>
             </li>
             <li class="bold">
-                <a class="principalmovil collapsible-header waves-effect waves-admin" href="">
+                <a class="principalmovil collapsible-header waves-effect waves-admin" href="{{ url('/empresa') }}">
                     <i class="material-icons">
                         build
                     </i>
-                    CALIDAD
+                    EMPRESAS
+                </a>
+            </li>
+            <li class="bold">
+                <a class="principalmovil collapsible-header waves-effect waves-admin" href="{{route('registro')}}">
+                    <i class="material-icons">
+                        group
+                    </i>
+                    ZONA PRIVADA
                 </a>
             </li>
             <li class="bold">

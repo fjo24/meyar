@@ -18,6 +18,12 @@ class DistribuidorController extends Controller
 
     public function registroStore(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required',
+            'username' => 'required|unique:users',
+            'password' => 'required',
+            'email' => 'required|email'
+        ]);
 
         $usuario                 = new User();
         $usuario->username  = $request->username;

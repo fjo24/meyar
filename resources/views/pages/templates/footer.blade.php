@@ -28,7 +28,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer-b col l3 s12 m6 hide-on-med-and-down" style="">
+                <div class="footer-b col l3 s12 m6" style="">
                     <h5 class="titulo-footer" style="    margin-top: 8%;">
                         SECCIONES
                     </h5>
@@ -69,7 +69,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer-b col l3 s12 m6 hide-on-med-and-down" style="">
+                <div class="footer-b col l3 s12 m6" style="">
                     <h5 class="titulo-footer" style="    margin-top: 8%;">
                         PRODUCTOS
                     </h5>
@@ -87,7 +87,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer_c col l3 s12 m6 left hide-on-med-and-down">
+                <div class="footer_c col l3 s12 m6 left">
                     <h5 class="titulo-footer3" style="margin-top: 8%;margin-bottom: 0%;">
                         INDUSTRIA ORTOPÉDICA MEYAR
                     </h5>
@@ -96,7 +96,7 @@
                             <li>
                                 <div class="col s1">
                                     <div class="" style="">
-                                        <img style="margin-top: 5px;" src="{{asset('img/direccion_f.png')}}">
+                                        <img class="hide-on-med-and-down" style="margin-top: 5px;" src="{{asset('img/direccion_f.png')}}">
                                         </img>
                                     </div>
                                 </div>
@@ -108,7 +108,7 @@
                             </li>
                             <li>
                                 <div class="col s1 rightlist">
-                                    <img style="margin-top: 5px;" class="" src="{{asset('img/telefono_f.png')}}">
+                                    <img style="margin-top: 5px;" class="hide-on-med-and-down" src="{{asset('img/telefono_f.png')}}">
                                     </img>
                                 </div>
                                 <div class="rightlist col s10" style="line-height: 29px!important">
@@ -119,7 +119,7 @@
                             <li>
                                 <div class="col s1 rightlist">
                                     <div class="" style="">
-                                        <img style="margin-top: 5px;" class="" src="{{asset('img/email_f.png')}}">
+                                        <img style="margin-top: 5px;" class="hide-on-med-and-down" src="{{asset('img/email_f.png')}}">
                                         </img>
                                     </div>
                                 </div>

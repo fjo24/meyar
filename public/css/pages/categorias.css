@@ -140,3 +140,13 @@
     color: #8D302F;
     right: -206px;
 }
+@media only screen and (max-width: 503px){
+    .hr-efecto {
+        width: 100px;
+        position: initial;
+    }
+
+    .div-nombre {
+        position: initial;
+    }
+}

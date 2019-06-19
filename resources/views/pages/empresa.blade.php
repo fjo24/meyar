@@ -15,7 +15,7 @@
 <div class="container" style="width: 88%;    margin-bottom: 3%;">
         <div class="row" style="position: relative;top: 20px;">
             <div class="izqcalidad col l6 m6 s12">
-                <img src="{{asset($empresa->imagen)}}" style="/* width: 237px; height: 221px; */">
+                <img src="{{asset($empresa->imagen)}}" style="width: 100%;">
             </div>
             <div class="dercalidad col l6 m6 s12">
                 <div class="nombrecalidad">

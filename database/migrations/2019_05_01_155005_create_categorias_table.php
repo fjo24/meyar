@@ -22,6 +22,7 @@ class CreateCategoriasTable extends Migration
             $table->string('orden');
 
             $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

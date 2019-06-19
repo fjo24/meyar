@@ -11,10 +11,10 @@
                     <div class="row">
                         <div class="col l3 s12 m3">
                             <h7>
-                                <a ;="" href="" style="color: gray">
+                                <a class=" hide-on-med-and-down" href="" style="color: gray">
                                     Productos |
                                 </a>
-                                <a href="" style="color: gray;text-transform: lowercase">
+                                <a class="hide-on-med-and-down" style="color: gray;text-transform: lowercase">
                                     {!! $categoria->nombre !!}
                                 </a>
                             </h7>

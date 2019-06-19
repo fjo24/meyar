@@ -36,6 +36,16 @@
 
 
 		<div class="row">
+				@if(count($errors) > 0)
+				<div class="col s12 card-panel text-darken-4" style="background-color:#8D302F; color: white" role "alert">
+					<h5>Por favor corrige los siguientes errores:</h5>
+						<ul>
+							@foreach($errors-> all() as $error)
+								<li>{{ $error }}</li>
+							@endforeach	
+						</ul>	
+					</div>
+				@endif
 
 			<div class="col l4 s12">
 
@@ -47,10 +57,16 @@
 
 	                        <div class="usuario_input input-field col s12">
 
-	                            {!!Form::text('username',null,['class'=>''])!!}
+	                            {{-- {!!Form::text('username',null,['class'=>''])!!}
 
 	                            {!!Form::label('Username')!!}
-
+ --}}
+								<input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
+								@if ($errors->has('username'))
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $errors->first('username') }}</strong>
+									</span>
+								@endif
 	                        </div>
 
 	                    </div>
